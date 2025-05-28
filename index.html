@@ -19,13 +19,13 @@
     .image-row {
       display: flex;
       justify-content: center;
-      gap: 5px;
+      gap: 10px;
       margin: 5px 0;
     }
 
     .image-row img {
-      width: 350px;
-      height: 200px;
+      max-width: 100%;    /* scale down if container is smaller */
+      height: auto;       /* auto-adjust height to keep aspect ratio */
       border-radius: 12px;
     }
     
