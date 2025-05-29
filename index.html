@@ -36,6 +36,16 @@
       object-fit: cover;
       display: block;
     }
+
+     form {
+      margin-top: 40px;
+      font-size: 20px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
     
   </style>
 </head>
@@ -49,6 +59,32 @@
      <img src="rocket .png" alt="Rocket">
      <img src="jet.jpg" alt="jet">
    </div>
+
+  <form action="https://formspree.io/f/yourFormID" method="POST" enctype="multipart/form-data">
+    <label>
+      Name:<br>
+      <input type="text" name="name" required />
+    </label>
+
+    <label>
+      Address:<br>
+      <textarea name="address" rows="4" required></textarea>
+    </label>
+
+    <label>
+      Upload your STL file:<br>
+      <input type="file" name="stl_file" accept=".stl" required />
+    </label>
+
+    <button type="submit">Submit Order Info</button>
+  </form>
+
+  <div class="payment-section">
+    <p>After submitting your info, please complete payment:</p>
+    <a href="https://buy.stripe.com/YOUR_PAYMENT_LINK" target="_blank">
+      <button>Pay Now</button>
+    </a>
+  </div>
   
 </body>
 </html>
