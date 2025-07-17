@@ -27,6 +27,6 @@ var lives = 4;
             }
         else if (lives = 1){ 
     		lives = 'you lose';
-            const sound = new Audio('path/to/your/sound.mp3');
+            const sound = new Audio('losing-horn-313723.mp3');
         	scoreElement.textContent = lives;
 
