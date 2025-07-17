@@ -10,4 +10,7 @@
       btn.classList.add("active");
     } 
     }
+
+	function submit(btn) {
  
+    } 
