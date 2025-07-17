@@ -35,12 +35,14 @@
           color: black;
       }
      .grid-container {
- 	 display: grid;
-	 grid-template-columns: auto auto auto auto;
- 	 gap: 10px;
+ 	
+     display: grid;
+	 grid-template-columns: 110px 110px 110px 110px;
+     gap: 10px;
 	 background-color: dodgerblue;
   	 padding: 10px;
   	 align-content: space-evenly;
+     justify-content: center;
 	}
 
      .grid-container > div {
@@ -55,12 +57,14 @@
   .button {
     border: none;
     color: white;
-    padding: 16px 32px;
+    width: 100px;       /* Fixed width */
+    height: 40px; 
+    padding: 16px 16px:
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16;
-    margin: 4px 2px;
+    margin: 2px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
   }
@@ -71,10 +75,7 @@
     
   }
 
-  .button1:hover {
-    background-color: dodgerblue;
-    color: white;
-}
+  
 	.button1.active {
     background-color: dodgerblue;
     color: white;
@@ -100,29 +101,40 @@
 </audio>
 
 <div class="grid-container">
-  <button class="button button1" onclick="press(this)">Green</button> 
-  <button class="button button1" onclick="press(this)">Green</button> 
-  <button class="button button1" onclick="press(this)">Green</button>
-  <button class="button button1" onclick="press(this)">Green</button>
-  <button class="button button1" onclick="press(this)">Green</button>
-  <button class="button button1" onclick="press(this)">Green</button>
-  <button class="button button1" onclick="press(this)">Green</button>
-  <button class="button button1" onclick="press(this)">Green</button>
-  <button class="button button1" onclick="press(this)">Green</button>
-  <button class="button button1" onclick="press(this)">Green</button>
-  <button class="button button1" onclick="press(this)">Green</button>
-  <button class="button button1" onclick="press(this)">Green</button>
-  <button class="button button1" onclick="press(this)">Green</button> 
-  <button class="button button1" onclick="press(this)">Green</button>
-  <button class="button button1" onclick="press(this)">Green</button>
-  <button class="button button1" onclick="press(this)">Butter Dawg</button>
+  <button id="a" class="button button1" onclick="press(this)">Green</button> 
+  <button id="b" class="button button1" onclick="press(this)">Green</button> 
+  <button id="c" class="button button1" onclick="press(this)">Green</button>
+  <button id="d" class="button button1" onclick="press(this)">Green</button>
+  <button id="e" class="button button1" onclick="press(this)">Green</button>
+  <button id="f" class="button button1" onclick="press(this)">Green</button>
+  <button id="g" class="button button1" onclick="press(this)">Green</button>
+  <button id="h" class="button button1" onclick="press(this)">Green</button>
+  <button id="i" class="button button1" onclick="press(this)">Green</button>
+  <button id="j" class="button button1" onclick="press(this)">Green</button>
+  <button id="k" class="button button1" onclick="press(this)">Green</button>
+  <button id="l" class="button button1" onclick="press(this)">Green</button>
+  <button id="m" class="button button1" onclick="press(this)">Green</button> 
+  <button id="n" class="button button1" onclick="press(this)">Green</button>
+  <button id="o"class="button button1" onclick="press(this)">Green</button>
+  <button id="p" class="button button1" onclick="press(this)">Butter Dawg</button>
   </div>
 
   <script>
     function press(btn) {
-      btn.classList.toggle("active");
+     const activeButtons = document.querySelectorAll(".button.active");
+
+    // If already active, allow toggle off
+    if (btn.classList.contains("active")) {
+      btn.classList.remove("active");
+    } 
+    // Otherwise, only activate if fewer than 4 are active
+    else if (activeButtons.length < 4) {
+      btn.classList.add("active");
+    } 
     }
-  </script>
+ 
+ 	
+ </script>
 
 </body>
 
