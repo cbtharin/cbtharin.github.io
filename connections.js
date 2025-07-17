@@ -1,7 +1,9 @@
+
+//Fucntion for pushing the buttoms up and down 
 function press(btn) {
 const activeButtons = document.querySelectorAll(".button.active");
 
-    // If already active, allow toggle off
+    
 if (btn.classList.contains("active")) {
       btn.classList.remove("active");
     } 
@@ -11,10 +13,20 @@ else if (activeButtons.length < 4) {
     } 
     }
 
-function submit(btn) {
-    } 
 
+//Lives 
 var lives = 4;
-var scoreElement = document.getElementById("lifeCount");
-scoreElement.textContent = lives;
+	var scoreElement = document.getElementById("lifeCount");
+  	scoreElement.textContent = lives;
+ 
+    
+    function submit(btn) {
+    	if (lives > 1){
+        	lives = lives - 1;
+        	scoreElement.textContent = lives;
+            }
+        else if (lives = 1){ 
+    		lives = 'you lose';
+            const sound = new Audio('path/to/your/sound.mp3');
+        	scoreElement.textContent = lives;
 
