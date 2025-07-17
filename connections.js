@@ -16,8 +16,8 @@ else if (activeButtons.length < 4) {
 
 //Lives 
 var lives = 4;
-	var scoreElement = document.getElementById("lifeCount");
-  	scoreElement.textContent = lives;
+var scoreElement = document.getElementById("lifeCount");
+scoreElement.textContent = lives;
  
     
     function submit(btn) {
@@ -29,4 +29,6 @@ var lives = 4;
     		lives = 'you lose';
             const sound = new Audio('losing-horn-313723.mp3');
         	scoreElement.textContent = lives;
+		}
+    }	
 
