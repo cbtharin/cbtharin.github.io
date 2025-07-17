@@ -17,7 +17,7 @@
       }
 
       body {
-        font-family: "Didot", "Bodoni MT", Didot, serif;
+        at-family: "Didot", "Bodoni MT", Didot, serif;
         padding: 2rem;
         background-color: #46515a;
         text-align: center;
@@ -35,6 +35,12 @@
           border: 3px solid green;
           color: black;
       }
+      
+      audio {
+      padding: 10px
+      }
+      
+      
      .grid-container {
  	
      display: grid;
@@ -52,17 +58,15 @@
   	padding: 10px;
   	font-size: 30px;
   	text-align: center;
-
-   audio {
-      padding: 20px
-      }
+	
     
     }
   .button {
+    font-family: "Didot", "Bodoni MT", Didot, serif;
     border-radius: 10px;
     border: none;
     color: white;
-    width: auto;      
+    width: auto;       /* Fixed width */
     height: 40px; 
     padding: 16px 16px:
     text-align: center;
@@ -70,7 +74,7 @@
     display: inline-block;
     font-size: 16;
     margin: 2px 2px;
-    transition-duration: 0.2s;
+   
     cursor: pointer;
   }
 
@@ -81,9 +85,9 @@
   }
 
   
-	.button1.active {
-    background-color: dodgerblue;
-    color: white;
+  .button1.active {
+  background-color: green;
+  color: white;
 
   
 }
@@ -95,18 +99,13 @@
 
 </nav>
 
-
-	
-	
-	
-	
 <body>
 <h1>as·so·ci·a·tions</h1>
 
 <p>Because the NYT people are making me mad and I can make a better puzzle (with cool music)</p>
 <p>My haters said I would never start this project</p>
 
-<audio controls autoplay>
+<audio controls autoplay muted>
   <source src="gamemusic.mp3" type="audio/mpeg">
 </audio>
 
@@ -131,20 +130,56 @@
 
 <button onclick="submit(this)">submit</button>
   
-<p>lives: <span id="lifeCount"></span></p> 
+<p>lives: <span id="lifeCount"></span></p>  
+ 
+  <script>
+    
+   
+    function press(btn) {
+     const activeButtons = document.querySelectorAll(".button.active");
 
-<script src="connections.js"></script>
+    // If already active, allow toggle off
+    if (btn.classList.contains("active")) {
+      btn.classList.remove("active");
+    } 
+    // Otherwise, only activate if fewer than 4 are active
+    else if (activeButtons.length < 4) {
+      btn.classList.add("active");
+    } 
+    }
+ 
+ 	    var lives = 4;
+	var scoreElement = document.getElementById("lifeCount");
+  	scoreElement.textContent = lives;
+ 
+    
+    function submit(btn) {
+    	if (lives > 1){
+        	lives = lives - 1;
+        	scoreElement.textContent = lives;
+            }
+        else if (lives === 1){ 
+    		lives = 'you lose';
+            const sound = new Audio('losing-horn-313723.mp3');
+        	scoreElement.textContent = lives;
+        } 
+        }
+    
+    
+ </script>
 
-	
 </body>
-
-<hr> 
+<hr>
 <footer>
-    <p>Charlie Tharin</p>
+	<p>Charlie Tharin</p>
     <p>email: cbtharin@gmail.com</p>
     <p>phone: 702-292-3345</p>
     
 </footer>
+
+
+</html>
+
 
 
 </html>
