@@ -26,32 +26,7 @@
       }
       h1 {
         color: white;
-      }
-
-      .image-row {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin: 5px 0;
-      }
-
-      .image-row img {
-        width: auto;       /* natural width */
-        max-width: 410px;  /* don’t let it grow beyond 300px */
-        height: auto;      /* keep aspect ratio */
-        border-radius: 12px;
-        object-fit: contain;
-        border: 5px solid white;
-      }
-
-      form {
-        margin-top: 40px;
-        font-size: 20px;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+      
       }
 
       nav {
@@ -62,7 +37,6 @@
      .grid-container {
  	 display: grid;
 	 grid-template-columns: auto auto auto auto;
-  
  	 gap: 10px;
 	 background-color: dodgerblue;
   	 padding: 10px;
@@ -75,6 +49,36 @@
   	padding: 10px;
   	font-size: 30px;
   	text-align: center;
+	
+    
+    }
+  .button {
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .button1 {
+    background-color: white;
+    color: black;
+    
+  }
+
+  .button1:hover {
+    background-color: dodgerblue;
+    color: white;
+}
+	.button1.active {
+    background-color: dodgerblue;
+    color: white;
+
   
 }
   </style>
@@ -86,37 +90,39 @@
 </nav>
 
 <body>
-
-<audio controls autoplay muted>
-  <source src="gamemusic.mp3" type="audio/mpeg">
-</audio>
-	
-	
-	
 <h1>Grid Container</h1>
 
 <p>A grid container contains one or more grid items arranged in columns and rows.</p>
 <p>Direct child elements(s) of the grid container automatically becomes grid items.</p>
 
-<div class="grid-container">
-  <div>1</div>
-  <div>2</div>
-  <div>3</div>  
-  <div>4</div>
-  <div>5</div>
-  <div>6</div>
-  <div>7</div>
-  <div>8</div>
-  <div>9</div>
-  <div>8</div>
-  <div>9</div>
-  <div>8</div>
-  <div>9</div>
-  <div>8</div>
-  <div>9</div>
-  <div>8</div>
+<audio controls autoplay muted>
+  <source src="gamemusic.mp3" type="audio/mpeg">
+</audio>
 
-</div>
+<div class="grid-container">
+  <button class="button button1" onclick="press(this)">Green</button> 
+  <button class="button button1" onclick="press(this)">Green</button> 
+  <button class="button button1" onclick="press(this)">Green</button>
+  <button class="button button1" onclick="press(this)">Green</button>
+  <button class="button button1" onclick="press(this)">Green</button>
+  <button class="button button1" onclick="press(this)">Green</button>
+  <button class="button button1" onclick="press(this)">Green</button>
+  <button class="button button1" onclick="press(this)">Green</button>
+  <button class="button button1" onclick="press(this)">Green</button>
+  <button class="button button1" onclick="press(this)">Green</button>
+  <button class="button button1" onclick="press(this)">Green</button>
+  <button class="button button1" onclick="press(this)">Green</button>
+  <button class="button button1" onclick="press(this)">Green</button> 
+  <button class="button button1" onclick="press(this)">Green</button>
+  <button class="button button1" onclick="press(this)">Green</button>
+  <button class="button button1" onclick="press(this)">Butter Dawg</button>
+  </div>
+
+  <script>
+    function press(btn) {
+      btn.classList.toggle("active");
+    }
+  </script>
 
 </body>
 
@@ -130,3 +136,4 @@
 
 
 </html>
+
