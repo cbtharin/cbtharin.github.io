@@ -1,16 +1,20 @@
-    function press(btn) {
-     const activeButtons = document.querySelectorAll(".button.active");
+function press(btn) {
+const activeButtons = document.querySelectorAll(".button.active");
 
     // If already active, allow toggle off
-    if (btn.classList.contains("active")) {
+if (btn.classList.contains("active")) {
       btn.classList.remove("active");
     } 
     // Otherwise, only activate if fewer than 4 are active
-    else if (activeButtons.length < 4) {
+else if (activeButtons.length < 4) {
       btn.classList.add("active");
     } 
     }
 
-	function submit(btn) {
- 
+function submit(btn) {
     } 
+
+var lives = 4;
+var scoreElement = document.getElementById("lifeCount");
+scoreElement.textContent = lives;
+
