@@ -105,7 +105,7 @@
 <p>Because the NYT people are making me mad and I can make a better puzzle (with cool music)</p>
 <p>My haters said I would never start this project</p>
 
-<audio controls autoplay>
+<audio controls autoplay muted>
   <source src="gamemusic.mp3" type="audio/mpeg">
 </audio>
 
@@ -148,29 +148,45 @@
     } 
     }
  
- 	    var lives = 4;
+ 	var lives = 4;
 	var scoreElement = document.getElementById("lifeCount");
   	scoreElement.textContent = lives;
  
     
-      
+    
+    
+    const idList = ["a", "b", "c", "d"];
+
     function submit(btn) {
-    	const selectButtons = document.querySelectorAll(".button.active");
-        if (selectButtons.length === 4) {
-          if (lives > 1){
+      
+      const selectedButtons = document.querySelectorAll(".button.active");
+
+      if (selectedButtons.length === 4) {
+        const selectedIDs = Array.from(selectedButtons).map(el => el.id);
+
+          // Check: all selected IDs are in idList AND no extras
+         const allMatch = selectedIDs.every(id => idList.includes(id)) &&
+                           idList.every(id => selectedIDs.includes(id));
+        if (allMatch) {
+          
+          console.log("Match found!");
+          
+        } else {
+            
+            if (lives > 1) {
               lives = lives - 1;
               scoreElement.textContent = lives;
-              }
-          else if (lives === 1){ 
+            
+            
+            } else if (lives === 1) {
               lives = 'you lose';
               const sound = new Audio('losing-horn-313723.mp3');
               scoreElement.textContent = lives;
               sound.play();
-          		} 
-          	}
           }
-
-    
+        }
+      }
+    }
     
  </script>
 
@@ -185,9 +201,3 @@
 
 
 </html>
-
-
-
-</html>
-
-
