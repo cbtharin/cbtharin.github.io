@@ -105,7 +105,7 @@
 <p>Because the NYT people are making me mad and I can make a better puzzle (with cool music)</p>
 <p>My haters said I would never start this project</p>
 
-<audio controls autoplay muted>
+<audio controls autoplay>
   <source src="gamemusic.mp3" type="audio/mpeg">
 </audio>
 
@@ -153,18 +153,23 @@
   	scoreElement.textContent = lives;
  
     
+      
     function submit(btn) {
-    	if (lives > 1){
-        	lives = lives - 1;
-        	scoreElement.textContent = lives;
-            }
-        else if (lives === 1){ 
-    		lives = 'you lose';
-            const sound = new Audio('losing-horn-313723.mp3');
-        	scoreElement.textContent = lives;
-		sound.play();
-        } 
-        }
+    	const selectButtons = document.querySelectorAll(".button.active");
+        if (selectButtons.length === 4) {
+          if (lives > 1){
+              lives = lives - 1;
+              scoreElement.textContent = lives;
+              }
+          else if (lives === 1){ 
+              lives = 'you lose';
+              const sound = new Audio('losing-horn-313723.mp3');
+              scoreElement.textContent = lives;
+              sound.play();
+          		} 
+          	}
+          }
+
     
     
  </script>
