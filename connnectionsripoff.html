@@ -4,200 +4,212 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>Associations</title>
-    <style>
-    
-    footer{
-          font-size: 20px;
-          background-color: #D3D3D3;
-          line-height: 0.2;
-          height: auto;
-          color: black;
+  <style>
 
-          border: 3px solid green;
-      }
-
-      body {
-        at-family: "Didot", "Bodoni MT", Didot, serif;
-        padding: 2rem;
-        background-color: #46515a;
-        text-align: center;
-        color: white;
-        font-size: 20px;
-        background-image: url('greybackround.webp');
-      }
-      h1 {
-        color: white;
-      
-      }
-
-      nav {
-          background-color: #D3D3D3;
-          border: 3px solid green;
-          color: black;
-      }
-      
-      audio {
-      padding: 10px
-      }
-      
-      
-     .grid-container {
- 	
-     display: grid;
-	 grid-template-columns: auto auto auto auto;
-     gap: 10px;
-	 
-  	 padding: 10px;
-  	 align-content: space-evenly;
-     justify-content: center;
-	}
-
-     .grid-container > div {
-  	background-color: #f1f1f1;
-  	color: #000;
-  	padding: 10px;
-  	font-size: 30px;
-  	text-align: center;
-	
-    
+    footer {
+      font-size: 20px;
+      background-color: #D3D3D3;
+      line-height: 0.2;
+      height: auto;
+      color: black;
+      border: 3px solid green;
     }
-  .button {
-    font-family: "Didot", "Bodoni MT", Didot, serif;
-    border-radius: 10px;
-    border: none;
-    color: white;
-    width: auto;       /* Fixed width */
-    height: 40px; 
-    padding: 16px 16px:
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16;
-    margin: 2px 2px;
-   
-    cursor: pointer;
-  }
 
-  .button1 {
-    background-color: white;
-    color: black;
+    body {
+      at-family: "Didot", "Bodoni MT", Didot, serif;
+      padding: 2rem;
+      background-color: #46515a;
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      background-image: url('greybackround.webp');
+    }
+
+    h1 {
+      color: white;
+    }
+
+    nav {
+      background-color: #D3D3D3;
+      border: 3px solid green;
+      color: black;
+    }
+
+    audio {
+      padding: 10px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      gap: 10px;
+      padding: 10px;
+      align-content: space-evenly;
+      justify-content: center;
+    }
+
+    .grid-container > div {
+      background-color: #f1f1f1;
+      color: #000;
+      padding: 10px;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .button {
+      font-family: "Didot", "Bodoni MT", Didot, serif;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      width: auto;
+      height: 40px;
+      padding: 16px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16;
+      margin: 2px 2px;
+      cursor: pointer;
+    }
+
+    .button1 {
+      background-color: white;
+      color: black;
+      text-align: center;
+    }
+
+    .button1.active {
+      background-color: green;
+      color: white;
+    }
     
-  }
+    .button1.green {
+      background-color: light green;
+      color: white;
+    }
+    
+    .button1.yellow {
+      background-color: yellow;
+      color: black;
+    }
+    
+    .button1.red {
+      background-color: red;
+      color: white;
+    }
+    
+    .button1.purple {
+      background-color: purple;
+      color: white;
+    }
 
-  
-  .button1.active {
-  background-color: green;
-  color: white;
+    button#a { grid-area: 2 / 1; }  /* row 2, col 1 */
+    button#b { grid-area: 2 / 2; }  /* row 2, col 2 */
+    button#c { grid-area: 1 / 2; }  /* row 1, col 2 */
+    button#d { grid-area: 1 / 1; }
 
-  
-}
   </style>
-
 </head>
-<nav>
-	<p><a href="index.html">← Back to Home</a></p>
 
+<nav>
+  <p><a href="index.html">← Back to Home</a></p>
 </nav>
 
 <body>
-<h1>as·so·ci·a·tions</h1>
+  <h1>as·so·ci·a·tions</h1>
 
-<p>Because the NYT people are making me mad and I can make a better puzzle (with cool music)</p>
-<p>My haters said I would never start this project</p>
+  <p>Because the NYT people are making me mad and I can make a better puzzle (with cool music)</p>
+  <p>My haters said I would never start this project</p>
 
-<audio controls autoplay muted>
-  <source src="gamemusic.mp3" type="audio/mpeg">
-</audio>
+  <audio controls autoplay muted>
+    <source src="gamemusic.mp3" type="audio/mpeg">
+  </audio>
 
-<div class="grid-container">
-  <button id="a" class="button button1" onclick="press(this)">Butter Dawg</button> 
-  <button id="b" class="button button1" onclick="press(this)">Butter Dawg</button> 
-  <button id="c" class="button button1" onclick="press(this)">Butter Dawg</button>
-  <button id="d" class="button button1" onclick="press(this)">Butter Dawg</button>
-  <button id="e" class="button button1" onclick="press(this)">Butter Dawg</button>
-  <button id="f" class="button button1" onclick="press(this)">Butter Dawg</button>
-  <button id="g" class="button button1" onclick="press(this)">Butter Dawg</button>
-  <button id="h" class="button button1" onclick="press(this)">Butter Dawg</button>
-  <button id="i" class="button button1" onclick="press(this)">Butter Dawg</button>
-  <button id="j" class="button button1" onclick="press(this)">Butter Dawg</button>
-  <button id="k" class="button button1" onclick="press(this)">Butter Dawg</button>
-  <button id="l" class="button button1" onclick="press(this)">Butter Dawg</button>
-  <button id="m" class="button button1" onclick="press(this)">Butter Dawg</button> 
-  <button id="n" class="button button1" onclick="press(this)">Butter Dawg</button>
-  <button id="o"class="button button1" onclick="press(this)">Butter Dawg</button>
-  <button id="p" class="button button1" onclick="press(this)">Butter Dawg</button>
+  <div class="grid-container">
+    <button id="a" class="button button1" onclick="press(this)">Chicken</button> 
+    <button id="b" class="button button1" onclick="press(this)">Charger</button> 
+    <button id="c" class="button button1" onclick="press(this)">Melon</button>
+    <button id="d" class="button button1" onclick="press(this)">Kool Aid</button>
+    <button id="e" class="button button1" onclick="press(this)">Butter Dawg</button>
+    <button id="f" class="button button1" onclick="press(this)">Butter Dawg</button>
+    <button id="g" class="button button1" onclick="press(this)">Butter Dawg</button>
+    <button id="h" class="button button1" onclick="press(this)">Butter Dawg</button>
+    <button id="i" class="button button1" onclick="press(this)">Butter Dawg</button>
+    <button id="j" class="button button1" onclick="press(this)">Butter Dawg</button>
+    <button id="k" class="button button1" onclick="press(this)">Butter Dawg</button>
+    <button id="l" class="button button1" onclick="press(this)">Butter Dawg</button>
+    <button id="m" class="button button1" onclick="press(this)">Butter Dawg</button> 
+    <button id="n" class="button button1" onclick="press(this)">Butter Dawg</button>
+    <button id="o" class="button button1" onclick="press(this)">Butter Dawg</button>
+    <button id="p" class="button button1" onclick="press(this)">Butter Dawg</button>
   </div>
 
-<button onclick="submit(this)">submit</button>
-  
-<p>lives: <span id="lifeCount"></span></p>  
- 
-  <script>
-    
-   
-    function press(btn) {
-     const activeButtons = document.querySelectorAll(".button.active");
+  <button onclick="submit(this)">submit</button>
+  <p>lives: <span id="lifeCount"></span></p>  
 
-    // If already active, allow toggle off
-    if (btn.classList.contains("active")) {
-      btn.classList.remove("active");
-    } 
-    // Otherwise, only activate if fewer than 4 are active
-    else if (activeButtons.length < 4) {
-      btn.classList.add("active");
-    } 
+  <script>
+    function press(btn) {
+      const activeButtons = document.querySelectorAll(".button.active");
+
+      // If already active, allow toggle off
+      if (btn.classList.contains("active")) {
+        btn.classList.remove("active");
+      } 
+      // Otherwise, only activate if fewer than 4 are active
+      else if (activeButtons.length < 4) {
+        btn.classList.add("active");
+      }
     }
- 
- 	var lives = 4;
-	var scoreElement = document.getElementById("lifeCount");
-  	scoreElement.textContent = lives;
- 
-    
-    
-    
-    const idList = ["a", "b", "c", "d"];
+
+    var lives = 4;
+    var scoreElement = document.getElementById("lifeCount");
+    scoreElement.textContent = lives;
+
+    const greenE = ["e", "f", "g", "h"];
+    const yellowM = ["a", "b", "c", "d"];
+    const redH = ["i", "j", "k", "l"];
+    const purpleHH = ["m", "n", "o", "p"];
 
     function submit(btn) {
-      
       const selectedButtons = document.querySelectorAll(".button.active");
 
       if (selectedButtons.length === 4) {
         const selectedIDs = Array.from(selectedButtons).map(el => el.id);
 
-          // Check: all selected IDs are in idList AND no extras
-         const allMatch = selectedIDs.every(id => idList.includes(id)) &&
-                           idList.every(id => selectedIDs.includes(id));
+        const allMatch = selectedIDs.every(id => yellowM.includes(id)) &&
+                         yellowM.every(id => selectedIDs.includes(id));
+
         if (allMatch) {
-          
-          console.log("Match found!");
-          
-        } else {
-            
-            if (lives > 1) {
-              lives = lives - 1;
-              scoreElement.textContent = lives;
-            
-            
-            } else if (lives === 1) {
-              lives = 'you lose';
-              const sound = new Audio('losing-horn-313723.mp3');
-              scoreElement.textContent = lives;
-              sound.play();
+         	const ids = ["a", "b", "c", "d"];
+
+            ids.forEach((id, index) => {
+              const el = document.getElementById(id);
+              el.style.gridArea = `1 / ${index + 1}`;
+              el.classList.add("yellow");
+              el.classList.remove("active");
+            });
+          } 
+         else {
+          if (lives > 1) {
+            lives = lives - 1;
+            scoreElement.textContent = lives;
+          } else if (lives === 1) {
+            lives = 'you lose';
+            const sound = new Audio('losing-horn-313723.mp3');
+            scoreElement.textContent = lives;
+            sound.play();
           }
         }
       }
     }
-    
- </script>
-
+  </script>
 </body>
+
 <hr>
+
 <footer>
-	<p>Charlie Tharin</p>
-    <p>email: cbtharin@gmail.com</p>
-    <p>phone: 702-292-3345</p>
-    
+  <p>Charlie Tharin</p>
+  <p>email: cbtharin@gmail.com</p>
+  <p>phone: 702-292-3345</p>
 </footer>
-
-
 </html>
