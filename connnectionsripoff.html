@@ -138,14 +138,14 @@
     <button id="b" class="button button1" onclick="press(this)">Charger</button> 
     <button id="c" class="button button1" onclick="press(this)">Melon</button>
     <button id="d" class="button button1" onclick="press(this)">Kool Aid</button>
-    <button id="e" class="button button1" onclick="press(this)">Butter Dawg</button>
-    <button id="f" class="button button1" onclick="press(this)">Butter Dawg</button>
-    <button id="g" class="button button1" onclick="press(this)">Butter Dawg</button>
-    <button id="h" class="button button1" onclick="press(this)">Butter Dawg</button>
-    <button id="i" class="button button1" onclick="press(this)">Butter Dawg</button>
-    <button id="j" class="button button1" onclick="press(this)">Butter Dawg</button>
-    <button id="k" class="button button1" onclick="press(this)">Butter Dawg</button>
-    <button id="l" class="button button1" onclick="press(this)">Butter Dawg</button>
+    <button id="e" class="button button1" onclick="press(this)">green</button>
+    <button id="f" class="button button1" onclick="press(this)">green</button>
+    <button id="g" class="button button1" onclick="press(this)">green</button>
+    <button id="h" class="button button1" onclick="press(this)">green</button>
+    <button id="i" class="button button1" onclick="press(this)">red</button>
+    <button id="j" class="button button1" onclick="press(this)">red</button>
+    <button id="k" class="button button1" onclick="press(this)">red</button>
+    <button id="l" class="button button1" onclick="press(this)">red</button>
     <button id="m" class="button button1" onclick="press(this)">Butter Dawg</button> 
     <button id="n" class="button button1" onclick="press(this)">Butter Dawg</button>
     <button id="o" class="button button1" onclick="press(this)">Butter Dawg</button>
@@ -183,12 +183,23 @@
       const selectedButtons = document.querySelectorAll(".button.active");
 
       if (selectedButtons.length === 4) {
-        const selectedIDs = Array.from(selectedButtons).map(el => el.id);
-
-        const allMatch = selectedIDs.every(id => yellowM.includes(id)) &&
-                         yellowM.every(id => selectedIDs.includes(id));
-
-        if (allMatch) {
+        const selectedIDyellow = Array.from(selectedButtons).map(el => el.id);
+        const allMatchYellow = selectedIDyellow.every(id => yellowM.includes(id)) &&
+                         yellowM.every(id => selectedIDyellow.includes(id));
+        
+        const selectedIDgreen = Array.from(selectedButtons).map(el => el.id);
+        const allMatchGreen = selectedIDgreen.every(id => greenE.includes(id)) &&
+                        greenE.every(id => selectedIDgreen.includes(id));
+        
+        const selectedIDred = Array.from(selectedButtons).map(el => el.id);
+        const allMatchRed = selectedIDred.every(id => redH.includes(id)) &&
+                        redH.every(id => selectedIDred.includes(id));
+                        
+        const selectedIDpurple = Array.from(selectedButtons).map(el => el.id);
+        const allMatchPurple = selectedIDpurple.every(id => purpleHH.includes(id)) &&
+                        purpleHH.every(id => selectedIDpurple.includes(id));
+       
+        if (allMatchYellow) {
          	const ids = ["a", "b", "c", "d"];
 
             ids.forEach((id, index) => {
