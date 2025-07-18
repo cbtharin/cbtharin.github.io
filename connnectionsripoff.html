@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <title>Associations</title>
   <style>
-
     footer {
       font-size: 20px;
       background-color: #D3D3D3;
@@ -16,7 +15,7 @@
     }
 
     body {
-      at-family: "Didot", "Bodoni MT", Didot, serif;
+      font-family: "Didot", "Bodoni MT", Didot, serif;
       padding: 2rem;
       background-color: #46515a;
       text-align: center;
@@ -41,8 +40,8 @@
 
     .grid-container {
       display: grid;
-       grid-template-rows: repeat(4, minmax(50px, 100px));
-     	grid-template-columns: repeat(4, minmax(100px, auto));
+      grid-template-rows: repeat(4, minmax(50px, 100px));
+      grid-template-columns: repeat(4, minmax(100px, auto));
       padding: 5px;
       align-content: space-evenly;
       justify-content: center;
@@ -51,71 +50,72 @@
     .grid-container > div {
       background-color: #f1f1f1;
       color: #000;
-     
       font-size: 30px;
       text-align: center;
     }
 
     .button {
-      font-family: "Didot", "Bodoni MT", Didot, serif;
+      font-family: 'Trebuchet MS', sans-serif, strong;
+      font-weight: bold;
       border-radius: 10px;
       border: none;
       color: white;
-      padding: 15px 21px;
       text-align: center;
       text-decoration: none;
-      
-      font-size: 16px;
+      font-size: 19px;
       margin: 2px;
       cursor: pointer;
       display: inline-block;
-      
-      
-      cursor: pointer;
-      
-      
-     
-      height: auto;           /* Let the height adjust */
-      max-width: 100%;        
-       
+      height: auto;
+      max-width: 100%;
     }
 
     .button1 {
       background-color: white;
       color: black;
-      
     }
 
     .button1.active {
-      background-color: green;
+      background-color: grey;
       color: white;
     }
-    
+
     .button1.green {
-      background-color: light green;
-      color: white;
-    }
-    
-    .button1.yellow {
-      background-color: yellow;
+      background-color: LimeGreen;
       color: black;
     }
-    
+
+    .button1.yellow {
+      background-color: gold;
+      color: black;
+    }
+
     .button1.red {
       background-color: red;
-      color: white;
+      color: black;
     }
-    
+
     .button1.purple {
       background-color: purple;
-      color: white;
+      color: Medium Orchid;
     }
 
-    button#a { grid-area: 2 / 1; }  /* row 2, col 1 */
-    button#b { grid-area: 2 / 2; }  /* row 2, col 2 */
-    button#c { grid-area: 1 / 2; }  /* row 1, col 2 */
-    button#d { grid-area: 1 / 1; }
-
+    button#a { grid-area: 1 / 1; }
+    button#b { grid-area: 1 / 2; }
+    button#c { grid-area: 1 / 3; }
+    button#d { grid-area: 1 / 4; }
+    button#e { grid-area: 2 / 1; }
+    button#f { grid-area: 2 / 2; }
+    button#g { grid-area: 2 / 3; }
+    button#h { grid-area: 2 / 4; }
+    button#i { grid-area: 3 / 1; }
+    button#j { grid-area: 3 / 2; }
+    button#k { grid-area: 3 / 3; }
+    button#l { grid-area: 3 / 4; }
+    button#m { grid-area: 4 / 1; }
+    button#n { grid-area: 4 / 2; }
+    button#o { grid-area: 4 / 3; }
+    button#p { grid-area: 4 / 4; }
   </style>
 </head>
 
@@ -134,38 +134,35 @@
   </audio>
 
   <div class="grid-container">
-    <button id="a" class="button button1" onclick="press(this)">Chicken</button> 
-    <button id="b" class="button button1" onclick="press(this)">Charger</button> 
-    <button id="c" class="button button1" onclick="press(this)">Melon</button>
-    <button id="d" class="button button1" onclick="press(this)">Kool Aid</button>
-    <button id="e" class="button button1" onclick="press(this)">green</button>
-    <button id="f" class="button button1" onclick="press(this)">green</button>
-    <button id="g" class="button button1" onclick="press(this)">green</button>
-    <button id="h" class="button button1" onclick="press(this)">green</button>
-    <button id="i" class="button button1" onclick="press(this)">red</button>
-    <button id="j" class="button button1" onclick="press(this)">red</button>
-    <button id="k" class="button button1" onclick="press(this)">red</button>
-    <button id="l" class="button button1" onclick="press(this)">red</button>
-    <button id="m" class="button button1" onclick="press(this)">Butter Dawg</button> 
-    <button id="n" class="button button1" onclick="press(this)">Butter Dawg</button>
-    <button id="o" class="button button1" onclick="press(this)">Butter Dawg</button>
-    <button id="p" class="button button1" onclick="press(this)">Butter Dawg</button>
+    <button id="a" class="button button1" onclick="press(this)">CHICKEN</button>
+    <button id="b" class="button button1" onclick="press(this)">CHARGER</button>
+    <button id="c" class="button button1" onclick="press(this)">MELON</button>
+    <button id="d" class="button button1" onclick="press(this)">KOOL AID</button>
+    <button id="e" class="button button1" onclick="press(this)">GREEN</button>
+    <button id="f" class="button button1" onclick="press(this)">GREEN</button>
+    <button id="g" class="button button1" onclick="press(this)">GREEN</button>
+    <button id="h" class="button button1" onclick="press(this)">GREEN</button>
+    <button id="i" class="button button1" onclick="press(this)">RED</button>
+    <button id="j" class="button button1" onclick="press(this)">RED</button>
+    <button id="k" class="button button1" onclick="press(this)">RED</button>
+    <button id="l" class="button button1" onclick="press(this)">RED</button>
+    <button id="m" class="button button1" onclick="press(this)">BUTTER DAWG</button>
+    <button id="n" class="button button1" onclick="press(this)">BUTTER DAWG</button>
+    <button id="o" class="button button1" onclick="press(this)">BUTTER DAWG</button>
+    <button id="p" class="button button1" onclick="press(this)">BUTTER DAWG</button>
   </div>
 
   <button onclick="submit(this)">submit</button>
   <button onclick="deselect(this)">deselect</button>
-  <p>lives: <span id="lifeCount"></span></p>  
+  <p>lives: <span id="lifeCount"></span></p>
 
   <script>
     function press(btn) {
       const activeButtons = document.querySelectorAll(".button.active");
 
-      // If already active, allow toggle off
       if (btn.classList.contains("active")) {
         btn.classList.remove("active");
-      } 
-      // Otherwise, only activate if fewer than 4 are active
-      else if (activeButtons.length < 4) {
+      } else if (activeButtons.length < 4) {
         btn.classList.add("active");
       }
     }
@@ -178,6 +175,7 @@
     const yellowM = ["a", "b", "c", "d"];
     const redH = ["i", "j", "k", "l"];
     const purpleHH = ["m", "n", "o", "p"];
+    let matchNumber = 1;
 
     function submit(btn) {
       const selectedButtons = document.querySelectorAll(".button.active");
@@ -185,31 +183,65 @@
       if (selectedButtons.length === 4) {
         const selectedIDyellow = Array.from(selectedButtons).map(el => el.id);
         const allMatchYellow = selectedIDyellow.every(id => yellowM.includes(id)) &&
-                         yellowM.every(id => selectedIDyellow.includes(id));
-        
+                               yellowM.every(id => selectedIDyellow.includes(id));
+
         const selectedIDgreen = Array.from(selectedButtons).map(el => el.id);
         const allMatchGreen = selectedIDgreen.every(id => greenE.includes(id)) &&
-                        greenE.every(id => selectedIDgreen.includes(id));
-        
+                              greenE.every(id => selectedIDgreen.includes(id));
+
         const selectedIDred = Array.from(selectedButtons).map(el => el.id);
         const allMatchRed = selectedIDred.every(id => redH.includes(id)) &&
-                        redH.every(id => selectedIDred.includes(id));
-                        
+                            redH.every(id => selectedIDred.includes(id));
+
         const selectedIDpurple = Array.from(selectedButtons).map(el => el.id);
         const allMatchPurple = selectedIDpurple.every(id => purpleHH.includes(id)) &&
-                        purpleHH.every(id => selectedIDpurple.includes(id));
-       
-        if (allMatchYellow) {
-         	const ids = ["a", "b", "c", "d"];
+                               purpleHH.every(id => selectedIDpurple.includes(id));
 
+        if (allMatchYellow || allMatchGreen || allMatchRed || allMatchPurple) {
+          if (allMatchYellow) {
+            const ids = ["a", "b", "c", "d"];
             ids.forEach((id, index) => {
               const el = document.getElementById(id);
-              el.style.gridArea = `1 / ${index + 1}`;
+              el.style.gridArea = matchNumber + '/' + (index + 1);
               el.classList.add("yellow");
               el.classList.remove("active");
             });
-          } 
-         else {
+            matchNumber += 1;
+          }
+
+          if (allMatchRed) {
+            const ids = ["i", "j", "k", "l"];
+            ids.forEach((id, index) => {
+              const el = document.getElementById(id);
+              el.style.gridArea = matchNumber + '/' + (index + 1);
+              el.classList.add("red");
+              el.classList.remove("active");
+            });
+            matchNumber += 1;
+          }
+
+          if (allMatchGreen) {
+            const ids = ["e", "f", "g", "h"];
+            ids.forEach((id, index) => {
+              const el = document.getElementById(id);
+              el.style.gridArea = matchNumber + '/' + (index + 1);
+              el.classList.add("green");
+              el.classList.remove("active");
+            });
+            matchNumber += 1;
+          }
+
+          if (allMatchPurple) {
+            const ids = ["m", "n", "o", "p"];
+            ids.forEach((id, index) => {
+              const el = document.getElementById(id);
+              el.style.gridArea = matchNumber + '/' + (index + 1);
+              el.classList.add("purple");
+              el.classList.remove("active");
+            });
+            matchNumber += 1;
+          }
+        } else {
           if (lives > 1) {
             lives = lives - 1;
             scoreElement.textContent = lives;
@@ -222,15 +254,14 @@
         }
       }
     }
-    
-       function deselect(btn) {
-   		const ids = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 'm', "n", 'o', 'p'];
-        ids.forEach((id, index) => {
-              const el = document.getElementById(id)
-              el.classList.remove("active");
-            });
-            }
 
+    function deselect(btn) {
+      const ids = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 'm', "n", 'o', 'p'];
+      ids.forEach((id) => {
+        const el = document.getElementById(id);
+        el.classList.remove("active");
+      });
+    }
   </script>
 </body>
 
@@ -242,3 +273,4 @@
   <p>phone: 702-292-3345</p>
 </footer>
 </html>
+
