@@ -75,7 +75,7 @@
     .button1 {
       background-color: white;
       color: black;
-      text-align: center;
+      
     }
 
     .button1.active {
@@ -145,6 +145,7 @@
   </div>
 
   <button onclick="submit(this)">submit</button>
+  <button onclick="deselect(this)">deselect</button>
   <p>lives: <span id="lifeCount"></span></p>  
 
   <script>
@@ -202,6 +203,15 @@
         }
       }
     }
+    
+       function deselect(btn) {
+   		const ids = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 'm', "n", 'o', 'p'];
+        ids.forEach((id, index) => {
+              const el = document.getElementById(id)
+              el.classList.remove("active");
+            });
+            }
+
   </script>
 </body>
 
