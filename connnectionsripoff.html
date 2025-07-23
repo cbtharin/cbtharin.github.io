@@ -91,9 +91,9 @@
      .button1.purple {
       background-color:  MediumOrchid;
       color: black;
-    
     }
-
+    
+	#overlayAlmost,
     #overlayWin,
     #overlayLoss {
       font-family: 'Trebuchet MS', sans-serif;
@@ -110,9 +110,6 @@
       cursor: pointer;
     }
 
-    #overlayLoss {
-      background-color: rgba(0, 0, 0, 0.8);
-    }
 
     #text {
       position: absolute;
@@ -188,6 +185,10 @@
   <div id="overlayWin" onclick="overlayoff()">
     <div id="text">You win!</div>
   </div>
+  
+   <div id="overlayAlmost" onclick="overlayoff()">
+    <div id="text">One away!</div>
+  </div>
 
   <script>
     
@@ -216,6 +217,7 @@
     function overlayoff() {
       document.getElementById("overlayWin").style.display = "none";
       document.getElementById("overlayLoss").style.display = "none";
+      document.getElementById("overlayAlmost").style.display = "none";
     }
 
 	//Adds the active (pressed) button status to the connection words whent the user pushes them
@@ -236,7 +238,7 @@
     var scoreElement = document.getElementById("lifeCount");
     scoreElement.textContent = lives;
 
-	//Defining different connects
+	//Defining different connectionss
     const greenE = ["e", "f", "g", "h"];
     const yellowM = ["a", "b", "c", "d"];
     const redH = ["i", "j", "k", "l"];
@@ -246,59 +248,85 @@
     let matchNumber = 1;
 
 
-	//Main function that determines what happens when the submit button is pressed
+//Main function that determines what happens when the submit button is pressed
     function submit(btn) {
+      
       //identifies which words the user has selected
       const selectedButtons = document.querySelectorAll(".button.active");
 	  
       //prevents submission if there are not exaclty four active buttons
       if (selectedButtons.length !== 4) return;
 
-
+	  //takes the selected buttons and creates a list of those buttons IDs
       const selectedIDs = Array.from(selectedButtons).map(el => el.id);
 
+//Player has found connection then:
       const checkMatch = (set, color) => {
+        //if the selected button's ids match any connection exactly then:
         if (selectedIDs.every(id => set.includes(id)) && set.every(id => selectedIDs.includes(id))) {
           set.forEach((id, index) => {
             const el = document.getElementById(id);
-            el.style.gridArea = matchNumber + '/' + (index + 1);
-            el.classList.add(color);
-            el.classList.remove("active");
+            el.style.gridArea = matchNumber + '/' + (index + 1); //move buttons to the top
+            el.classList.add(color); //add connection color
+            //disables the buttons that form the connection
+            const idwords = selectedIDs;
+            idwords.forEach(id => {
+              const btn = document.getElementById(id);
+              if (btn) btn.disabled = true;
+            });
+            el.classList.remove("active"); //remove selected (active) status
+           
           });
+		//adding one to matchNUmber, the varaible that keeps track of how many conenctions the player has found
           matchNumber++;
+          //if the player has found all the connections then:
           if (matchNumber === 5) {
-            document.getElementById("overlayWin").style.display = "block";
-            freezeButtons();
+            document.getElementById("overlayWin").style.display = "block"; //display win screen
+            freezeallButtons(); //freeze all buttons
           }
           return true;
         }
         return false;
       };
+      
 		
-      //if the user hasnt found a yellow, green, purple, or red connection then:
+//Player hasnt found a yellow, green, purple, or red connection then:
       if (
         !checkMatch(yellowM, "yellow") &&
         !checkMatch(greenE, "green") &&
         !checkMatch(redH, "red") &&
         !checkMatch(purpleHH, "purple")
       ) {
+      
         //if they have lives left they lose another
         if (lives > 1) {
           lives--;
           scoreElement.textContent = lives;
+          		//finding the intersection between the connection of a certain color and the selected buttons
+                //if the intersection of the two lists (any conenction and chosen buttons) is = to 3, the player is one away
+                const yellowalmost = selectedIDs.filter(item => yellowM.includes(item));
+                const greenalmost = selectedIDs.filter(item => greenE.includes(item));
+                const redalmost = selectedIDs.filter(item =>  redH.includes(item));
+                const purplealmost = selectedIDs.filter(item => purpleHH.includes(item));
+         	//if any of the connection are one away display "1 away" screen
+             if (yellowalmost.length === 3 || greenalmost.length === 3 ||redalmost.length === 3 || purplealmost.length === 3){
+                document.getElementById("overlayAlmost").style.display = "block";
+             };
+          
         } 
-        //if they dont have lives left the lose screen appears
+        //if they dont have lives left:
         else {
           lives = 'you lose';
-          const sound = new Audio('losing-horn-313723.mp3');
+          const sound = new Audio('losing-horn-313723.mp3'); //the losiung sound plays
           scoreElement.textContent = lives;
           sound.play();
-          document.getElementById("overlayLoss").style.display = "block";
-          deselect();
-          freezeButtons();
+          document.getElementById("overlayLoss").style.display = "block"; //the lose screen appears
+          deselect(); //buttons get deselected
+          freezeallButtons(); //and all buttons get frozen
         }
       }
     }
+
 
 //deselects buttons by removing selected attribute
     function deselect() {
@@ -309,18 +337,21 @@
       });
     }
 
+
 //freezes buttons by applying the frozen attribute
-    function freezeButtons() {
+    function freezeallButtons() {
       const idbuttons = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"];
       idbuttons.forEach(id => {
         const btn = document.getElementById(id);
         if (btn) btn.disabled = true;
       });
     }
+ 
   </script>
 
+  <!-- little line boi to seperate fotter -->
   <hr>
-
+  
   <footer>
     <p>Charlie Tharin</p>
     <p>email: cbtharin@gmail.com</p>
