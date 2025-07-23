@@ -142,37 +142,45 @@
 
   <h1>as·so·ci·a·tions</h1>
 
-  <p>Because the NYT people are making me mad and I can make a better puzzle (with cool custom music)</p>
+  <p>Because the NYT people are making me mad and I can make a better puzzle (with cool music)</p>
   <p>My haters said I would never start this project</p>
 
-  <audio controls autoplay>
+  <!--Music play button-->
+  <audio controls autoplay muted>
     <source src="gamemusic.mp3" type="audio/mpeg">
   </audio>
 
   <div class="grid-container">
-    <button id="a" class="button button1" onclick="press(this)">POCKET</button>
-    <button id="b" class="button button1" onclick="press(this)">FELT</button>
-    <button id="c" class="button button1" onclick="press(this)">LEGS</button>
-    <button id="d" class="button button1" onclick="press(this)">BUMPER</button>
+    <!--green group (easy)-->
     <button id="e" class="button button1" onclick="press(this)">CHICKEN</button>
     <button id="f" class="button button1" onclick="press(this)">YELLOW</button>
     <button id="g" class="button button1" onclick="press(this)">SOFT</button>
     <button id="h" class="button button1" onclick="press(this)">WEAK</button>
+    <!--yellow group (medium)-->
+    <button id="a" class="button button1" onclick="press(this)">POCKET</button>
+    <button id="b" class="button button1" onclick="press(this)">FELT</button>
+    <button id="c" class="button button1" onclick="press(this)">LEGS</button>
+    <button id="d" class="button button1" onclick="press(this)">BUMPER</button>
+     <!--red group (hard)-->
     <button id="i" class="button button1" onclick="press(this)">CHARGER</button>
     <button id="j" class="button button1" onclick="press(this)">KNIFE</button>
     <button id="k" class="button button1" onclick="press(this)">GLASS</button>
     <button id="l" class="button button1" onclick="press(this)">CLOTH</button>
+     <!--Purple group (very hard)-->
     <button id="m" class="button button1" onclick="press(this)">MELON</button>
     <button id="n" class="button button1" onclick="press(this)">SLIDE</button>
     <button id="o" class="button button1" onclick="press(this)">GUN</button>
     <button id="p" class="button button1" onclick="press(this)">GATE</button>
   </div>
-
+  <!--buttons at bottom of screen-->
   <button onclick="submit(this)">submit</button>
   <button onclick="deselect(this)">deselect</button>
   <button onclick=randomizeGrid(this)>mix</button>
+  
+  <!--Life counter-->
   <p>lives: <span id="lifeCount"></span></p>
 
+  <!--Overlay toggles for win and lose screens-->
   <div id="overlayLoss" onclick="overlayoff()">
     <div id="text">You Suck</div>
   </div>
@@ -187,6 +195,7 @@
     const gridContainer = document.querySelector('.grid-container');
     const gridItems = Array.from(gridContainer.children);
     
+    //Fucntion that can shuffle an array
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -194,45 +203,57 @@
       }
     }
     
+    //Randomizes the Grid
     function randomizeGrid() {
       shuffleArray(gridItems);
       gridItems.forEach(item => gridContainer.appendChild(item));
     }
     
+    //calling the randomizer function to randomize the grid off the start
     randomizeGrid()
         
-    
-    
-    
-    
+    //Turns the winning and losing screens off with a click
     function overlayoff() {
       document.getElementById("overlayWin").style.display = "none";
       document.getElementById("overlayLoss").style.display = "none";
     }
 
+	//Adds the active (pressed) button status to the connection words whent the user pushes them
     function press(btn) {
+      //define list of selected buttons
       const activeButtons = document.querySelectorAll(".button.active");
+      
+      //prevetns the user from selecting more than four buttons at a time
       if (btn.classList.contains("active")) {
         btn.classList.remove("active");
       } else if (activeButtons.length < 4) {
         btn.classList.add("active");
       }
     }
-
+	
+    //defining lives as a varaible and updating display
     var lives = 4;
     var scoreElement = document.getElementById("lifeCount");
     scoreElement.textContent = lives;
 
+	//Defining different connects
     const greenE = ["e", "f", "g", "h"];
     const yellowM = ["a", "b", "c", "d"];
     const redH = ["i", "j", "k", "l"];
     const purpleHH = ["m", "n", "o", "p"];
+    
+    //counts how many connections the player has currently found
     let matchNumber = 1;
 
-    function submit(btn) {
-      const selectedButtons = document.querySelectorAll(".button.active");
 
+	//Main function that determines what happens when the submit button is pressed
+    function submit(btn) {
+      //identifies which words the user has selected
+      const selectedButtons = document.querySelectorAll(".button.active");
+	  
+      //prevents submission if there are not exaclty four active buttons
       if (selectedButtons.length !== 4) return;
+
 
       const selectedIDs = Array.from(selectedButtons).map(el => el.id);
 
@@ -253,17 +274,21 @@
         }
         return false;
       };
-
+		
+      //if the user hasnt found a yellow, green, purple, or red connection then:
       if (
         !checkMatch(yellowM, "yellow") &&
         !checkMatch(greenE, "green") &&
         !checkMatch(redH, "red") &&
         !checkMatch(purpleHH, "purple")
       ) {
+        //if they have lives left they lose another
         if (lives > 1) {
           lives--;
           scoreElement.textContent = lives;
-        } else {
+        } 
+        //if they dont have lives left the lose screen appears
+        else {
           lives = 'you lose';
           const sound = new Audio('losing-horn-313723.mp3');
           scoreElement.textContent = lives;
@@ -275,6 +300,7 @@
       }
     }
 
+//deselects buttons by removing selected attribute
     function deselect() {
       const ids = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"];
       ids.forEach(id => {
@@ -283,6 +309,7 @@
       });
     }
 
+//freezes buttons by applying the frozen attribute
     function freezeButtons() {
       const idbuttons = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"];
       idbuttons.forEach(id => {
