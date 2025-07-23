@@ -180,6 +180,29 @@
   </div>
 
   <script>
+    
+    //I stole the mixing alg from the internet i fear (my skills will be there one day but for now I want my site to work)
+    const gridContainer = document.querySelector('.grid-container');
+    const gridItems = Array.from(gridContainer.children);
+    
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+    
+    function randomizeGrid() {
+      shuffleArray(gridItems);
+      gridItems.forEach(item => gridContainer.appendChild(item));
+    }
+    
+    randomizeGrid()
+        
+    
+    
+    
+    
     function overlayoff() {
       document.getElementById("overlayWin").style.display = "none";
       document.getElementById("overlayLoss").style.display = "none";
