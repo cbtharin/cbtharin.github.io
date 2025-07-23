@@ -37,7 +37,8 @@
     audio {
       padding: 15px;
     }
-
+	  
+    /*sets up the playing board and defines how big the rows and columns should be*/
     .grid-container {
       display: grid;
       grid-template-rows: repeat(4, minmax(50px, 100px));
@@ -47,14 +48,15 @@
       justify-content: center;
       gap: 0px;
     }
-
+     /*items withing the board*/
     .grid-container > div {
       background-color: #f1f1f1;
       color: #000;
       font-size: 30px;
       text-align: center;
     }
-
+	  
+     /*buttons*/
     .button {
       font-family: 'Trebuchet MS', sans-serif;
       font-weight: bold;
@@ -70,17 +72,19 @@
       height: auto;
       max-width: 100%;
     }
-
+    /*buttons in the board*/
     .button1 {
       background-color: white;
       color: black;
     }
-
+	  
+    /*buttons when pressed */
     .button1.active {
       background-color: grey;
       color: white;
     }
-
+	  
+     /*attributes that get assigned to buttons when the connections are found*/
     .button1.green {
       background-color: LimeGreen;
       color: black;
@@ -100,8 +104,9 @@
       background-color:  MediumOrchid;
       color: black;
     }
-    
-	#overlayAlmost,
+
+    /*winn, loss, and one away overlays for the screen */
+    #overlayAlmost,
     #overlayWin,
     #overlayLoss {
       font-family: 'Trebuchet MS', sans-serif;
@@ -118,7 +123,7 @@
       cursor: pointer;
     }
 
-
+     /*overlay text */
     #text {
       position: absolute;
       top: 50%;
@@ -151,7 +156,7 @@
   <p>My haters said I would never start this project</p>
 
   <!--Music play button-->
-  <audio controls autoplay>
+  <audio controls autoplay loop>
     <source src="gamemusic.mp3" type="audio/mpeg">
   </audio>
 
