@@ -100,6 +100,49 @@
       color: Medium Orchid;
     }
 
+ #overlayWin {
+      font-family: 'Trebuchet MS', sans-serif, strong;
+      position: fixed;
+      display: none;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 2;
+      cursor: pointer;
+  }
+
+ #overlayLoss {
+      font-family: 'Trebuchet MS', sans-serif, strong;
+      position: fixed;
+      display: none;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.8);
+      z-index: 2;
+      cursor: pointer;
+      }
+    
+  #text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 50px;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    
+  }
+
+
+    
     
   </style>
 </head>
@@ -140,8 +183,25 @@
   <button onclick="submit(this)">submit</button>
   <button onclick="deselect(this)">deselect</button>
   <p>lives: <span id="lifeCount"></span></p>
+	
+    
+  <div id="overlayLoss" onclick="overlayoff()">
+     	<div id="text">You Suck</div>
+  </div>
+  
+    <div id="overlayWin" onclick="overlayoff()">
+ 	 <div id="text">You win!</div>
+  </div>
+  
+
 
   <script>
+     function overlayoff() {
+      document.getElementById("overlayWin").style.display = "none";
+      document.getElementById("overlayLoss").style.display = "none";
+    }
+
+    
     function press(btn) {
       const activeButtons = document.querySelectorAll(".button.active");
 
@@ -192,6 +252,9 @@
               el.classList.remove("active");
             });
             matchNumber += 1;
+            if (matchNumber === 5) {
+            	document.getElementById("overlayWin").style.display = "block";
+                }
           }
 
           if (allMatchRed) {
@@ -203,6 +266,9 @@
               el.classList.remove("active");
             });
             matchNumber += 1;
+            if (matchNumber === 5) {
+            	document.getElementById("overlayWin").style.display = "block";
+                }
           }
 
           if (allMatchGreen) {
@@ -214,6 +280,9 @@
               el.classList.remove("active");
             });
             matchNumber += 1;
+            if (matchNumber === 5) {
+            	document.getElementById("overlayWin").style.display = "block";
+                }
           }
 
           if (allMatchPurple) {
@@ -225,6 +294,9 @@
               el.classList.remove("active");
             });
             matchNumber += 1;
+            if (matchNumber === 5) {
+            	document.getElementById("overlayWin").style.display = "block";
+                }
           }
         } else {
           if (lives > 1) {
@@ -235,6 +307,7 @@
             const sound = new Audio('losing-horn-313723.mp3');
             scoreElement.textContent = lives;
             sound.play();
+            document.getElementById("overlayLoss").style.display = "block";
           }
         }
       }
