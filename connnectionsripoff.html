@@ -1,27 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Associations</title>
   <style>
-    footer {
-      font-size: 20px;
-      background-color: #D3D3D3;
-      line-height: 0.2;
-      height: auto;
-      color: black;
-      border: 3px solid green;
-    }
-
     body {
       font-family: "Didot", "Bodoni MT", Didot, serif;
       padding: 2rem;
       background-color: #46515a;
+      background-image: url('greybackround.webp');
       text-align: center;
       color: white;
       font-size: 20px;
-      background-image: url('greybackround.webp');
     }
 
     h1 {
@@ -32,6 +23,7 @@
       background-color: #D3D3D3;
       border: 3px solid green;
       color: black;
+      padding: 1rem;
     }
 
     audio {
@@ -45,6 +37,7 @@
       padding: 5px;
       align-content: space-evenly;
       justify-content: center;
+      gap: 10px;
     }
 
     .grid-container > div {
@@ -55,7 +48,7 @@
     }
 
     .button {
-      font-family: 'Trebuchet MS', sans-serif, strong;
+      font-family: 'Trebuchet MS', sans-serif;
       font-weight: bold;
       border-radius: 10px;
       border: none;
@@ -97,11 +90,12 @@
 
     .button1.purple {
       background-color: purple;
-      color: Medium Orchid;
+      color: MediumOrchid;
     }
 
- #overlayWin {
-      font-family: 'Trebuchet MS', sans-serif, strong;
+    #overlayWin,
+    #overlayLoss {
+      font-family: 'Trebuchet MS', sans-serif;
       position: fixed;
       display: none;
       width: 100%;
@@ -110,48 +104,41 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: rgba(0,0,0,0.7);
+      background-color: rgba(0, 0, 0, 0.7);
       z-index: 2;
       cursor: pointer;
-  }
+    }
 
- #overlayLoss {
-      font-family: 'Trebuchet MS', sans-serif, strong;
-      position: fixed;
-      display: none;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0,0,0,0.8);
-      z-index: 2;
-      cursor: pointer;
-      }
-    
-  #text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: 50px;
-    color: white;
-    transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    
-  }
+    #overlayLoss {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
 
+    #text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 50px;
+      color: white;
+      transform: translate(-50%, -50%);
+    }
 
-    
-    
+    footer {
+      font-size: 20px;
+      background-color: #D3D3D3;
+      line-height: 1.5;
+      color: black;
+      border: 3px solid green;
+      padding: 1rem;
+    }
   </style>
 </head>
 
-<nav>
-  <p><a href="index.html">← Back to Home</a></p>
-</nav>
-
 <body>
+
+  <nav>
+    <p><a href="index.html">← Back to Home</a></p>
+  </nav>
+
   <h1>as·so·ci·a·tions</h1>
 
   <p>Because the NYT people are making me mad and I can make a better puzzle (with cool music)</p>
@@ -183,28 +170,23 @@
   <button onclick="submit(this)">submit</button>
   <button onclick="deselect(this)">deselect</button>
   <p>lives: <span id="lifeCount"></span></p>
-	
-    
-  <div id="overlayLoss" onclick="overlayoff()">
-     	<div id="text">You Suck</div>
-  </div>
-  
-    <div id="overlayWin" onclick="overlayoff()">
- 	 <div id="text">You win!</div>
-  </div>
-  
 
+  <div id="overlayLoss" onclick="overlayoff()">
+    <div id="text">You Suck</div>
+  </div>
+
+  <div id="overlayWin" onclick="overlayoff()">
+    <div id="text">You win!</div>
+  </div>
 
   <script>
-     function overlayoff() {
+    function overlayoff() {
       document.getElementById("overlayWin").style.display = "none";
       document.getElementById("overlayLoss").style.display = "none";
     }
 
-    
     function press(btn) {
       const activeButtons = document.querySelectorAll(".button.active");
-
       if (btn.classList.contains("active")) {
         btn.classList.remove("active");
       } else if (activeButtons.length < 4) {
@@ -225,110 +207,73 @@
     function submit(btn) {
       const selectedButtons = document.querySelectorAll(".button.active");
 
-      if (selectedButtons.length === 4) {
-        const selectedIDyellow = Array.from(selectedButtons).map(el => el.id);
-        const allMatchYellow = selectedIDyellow.every(id => yellowM.includes(id)) &&
-                               yellowM.every(id => selectedIDyellow.includes(id));
+      if (selectedButtons.length !== 4) return;
 
-        const selectedIDgreen = Array.from(selectedButtons).map(el => el.id);
-        const allMatchGreen = selectedIDgreen.every(id => greenE.includes(id)) &&
-                              greenE.every(id => selectedIDgreen.includes(id));
+      const selectedIDs = Array.from(selectedButtons).map(el => el.id);
 
-        const selectedIDred = Array.from(selectedButtons).map(el => el.id);
-        const allMatchRed = selectedIDred.every(id => redH.includes(id)) &&
-                            redH.every(id => selectedIDred.includes(id));
-
-        const selectedIDpurple = Array.from(selectedButtons).map(el => el.id);
-        const allMatchPurple = selectedIDpurple.every(id => purpleHH.includes(id)) &&
-                               purpleHH.every(id => selectedIDpurple.includes(id));
-
-        if (allMatchYellow || allMatchGreen || allMatchRed || allMatchPurple) {
-          if (allMatchYellow) {
-            const ids = ["a", "b", "c", "d"];
-            ids.forEach((id, index) => {
-              const el = document.getElementById(id);
-              el.style.gridArea = matchNumber + '/' + (index + 1);
-              el.classList.add("yellow");
-              el.classList.remove("active");
-            });
-            matchNumber += 1;
-            if (matchNumber === 5) {
-            	document.getElementById("overlayWin").style.display = "block";
-                }
+      const checkMatch = (set, color) => {
+        if (selectedIDs.every(id => set.includes(id)) && set.every(id => selectedIDs.includes(id))) {
+          set.forEach((id, index) => {
+            const el = document.getElementById(id);
+            el.style.gridArea = matchNumber + '/' + (index + 1);
+            el.classList.add(color);
+            el.classList.remove("active");
+          });
+          matchNumber++;
+          if (matchNumber === 5) {
+            document.getElementById("overlayWin").style.display = "block";
+            freezeButtons();
           }
+          return true;
+        }
+        return false;
+      };
 
-          if (allMatchRed) {
-            const ids = ["i", "j", "k", "l"];
-            ids.forEach((id, index) => {
-              const el = document.getElementById(id);
-              el.style.gridArea = matchNumber + '/' + (index + 1);
-              el.classList.add("red");
-              el.classList.remove("active");
-            });
-            matchNumber += 1;
-            if (matchNumber === 5) {
-            	document.getElementById("overlayWin").style.display = "block";
-                }
-          }
-
-          if (allMatchGreen) {
-            const ids = ["e", "f", "g", "h"];
-            ids.forEach((id, index) => {
-              const el = document.getElementById(id);
-              el.style.gridArea = matchNumber + '/' + (index + 1);
-              el.classList.add("green");
-              el.classList.remove("active");
-            });
-            matchNumber += 1;
-            if (matchNumber === 5) {
-            	document.getElementById("overlayWin").style.display = "block";
-                }
-          }
-
-          if (allMatchPurple) {
-            const ids = ["m", "n", "o", "p"];
-            ids.forEach((id, index) => {
-              const el = document.getElementById(id);
-              el.style.gridArea = matchNumber + '/' + (index + 1);
-              el.classList.add("purple");
-              el.classList.remove("active");
-            });
-            matchNumber += 1;
-            if (matchNumber === 5) {
-            	document.getElementById("overlayWin").style.display = "block";
-                }
-          }
+      if (
+        !checkMatch(yellowM, "yellow") &&
+        !checkMatch(greenE, "green") &&
+        !checkMatch(redH, "red") &&
+        !checkMatch(purpleHH, "purple")
+      ) {
+        if (lives > 1) {
+          lives--;
+          scoreElement.textContent = lives;
         } else {
-          if (lives > 1) {
-            lives = lives - 1;
-            scoreElement.textContent = lives;
-          } else if (lives === 1) {
-            lives = 'you lose';
-            const sound = new Audio('losing-horn-313723.mp3');
-            scoreElement.textContent = lives;
-            sound.play();
-            document.getElementById("overlayLoss").style.display = "block";
-          }
+          lives = 'you lose';
+          const sound = new Audio('losing-horn-313723.mp3');
+          scoreElement.textContent = lives;
+          sound.play();
+          document.getElementById("overlayLoss").style.display = "block";
+          deselect();
+          freezeButtons();
         }
       }
     }
 
-    function deselect(btn) {
-      const ids = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 'm', "n", 'o', 'p'];
-      ids.forEach((id) => {
+    function deselect() {
+      const ids = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"];
+      ids.forEach(id => {
         const el = document.getElementById(id);
         el.classList.remove("active");
       });
     }
+
+    function freezeButtons() {
+      const idbuttons = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"];
+      idbuttons.forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) btn.disabled = true;
+      });
+    }
   </script>
+
+  <hr>
+
+  <footer>
+    <p>Charlie Tharin</p>
+    <p>email: cbtharin@gmail.com</p>
+    <p>phone: 702-292-3345</p>
+  </footer>
+
 </body>
-
-<hr>
-
-<footer>
-  <p>Charlie Tharin</p>
-  <p>email: cbtharin@gmail.com</p>
-  <p>phone: 702-292-3345</p>
-</footer>
 </html>
-
