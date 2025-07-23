@@ -341,11 +341,13 @@
       }
     }
 
+//list of all button ids	  
+const allIds = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"];
 
+	  
 //deselects buttons by removing selected attribute
     function deselect() {
-      const ids = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"];
-      ids.forEach(id => {
+      allIds.forEach(id => {
         const el = document.getElementById(id);
         el.classList.remove("active");
       });
@@ -354,8 +356,7 @@
 
 //freezes buttons by applying the frozen attribute
     function freezeallButtons() {
-      const idbuttons = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"];
-      idbuttons.forEach(id => {
+      allIds.forEach(id => {
         const btn = document.getElementById(id);
         if (btn) btn.disabled = true;
       });
