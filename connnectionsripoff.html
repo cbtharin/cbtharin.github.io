@@ -15,7 +15,7 @@
   <!-- good ol' fashion setup for how every csllefd component will look on the page -->
   <style>
     body {
-      font-family: "Didot", "Bodoni MT", Didot, serif;
+      font-family: 'Franklin Gothic', sans-serif;
       padding: 2rem;
       background-color: #46515a;
       background-image: url('greybackround.webp');
@@ -49,17 +49,60 @@
       justify-content: center;
       gap: 0px;
     }
-     /*items withing the board*/
+     /*items within the board*/
     .grid-container > div {
-      background-color: #f1f1f1;
+      background-color: #f5f5eb;
       color: #000;
       font-size: 30px;
       text-align: center;
+      line-height: 1;
+      margin: 2px;
     }
-	  
+    
+     .header-cell {
+      font-weight: bold;
+      text-align: center;
+      padding: 5px;
+      color: #9fd1a6;
+      grid-column: span 4;
+      font-family: 'Franklin Gothic', sans-serif;
+      font-weight: bold;
+      border-radius: 10px;
+      border: none;
+      
+      text-align: center;
+      text-decoration: none;
+      
+      
+      
+    }
+    
+    .header-cell.yellow {
+      background-color: #f7f17c;
+      color: black;
+      grid-column: span 4;
+   
+   }
+     .header-cell.green {
+      background-color: #9fd1a6;
+      color: black;
+    }
+
+    .header-cell.red {
+      background-color: #e67c7c;
+      color: black;
+    }
+
+     .header-cell.purple {
+      background-color: #be99c4;
+      color: black;
+     
+    }
+    
+ 
      /*buttons*/
     .button {
-      font-family: 'Trebuchet MS', sans-serif;
+      font-family: 'Franklin Gothic', sans-serif;
       font-weight: bold;
       border-radius: 10px;
       border: none;
@@ -72,39 +115,48 @@
       display: inline-block;
       height: auto;
       max-width: 100%;
+      
     }
+    
     /*buttons in the board*/
     .button1 {
-      background-color: white;
+      background-color: #f5f5eb;
       color: black;
+      
     }
 	  
     /*buttons when pressed */
     .button1.active {
-      background-color: grey;
-      color: white;
+      background-color: #5c5c53;
+      color: #f5f5eb;
+      
+      
     }
 	  
      /*attributes that get assigned to buttons when the connections are found*/
     .button1.green {
-      background-color: LimeGreen;
+      background-color: #9fd1a6;
       color: black;
     }
 
     .button1.yellow {
-      background-color: gold;
+      background-color: #f7f17c;
       color: black;
     }
 
     .button1.red {
-      background-color: red;
+      background-color: #e67c7c;
       color: black;
     }
 
      .button1.purple {
-      background-color:  MediumOrchid;
+      
+      background-color: #be99c4;
       color: black;
+      grid-column: span 4/auto;
     }
+    
+    
 
     /*winn, loss, and one away overlays for the screen */
     #overlayAlmost,
@@ -161,32 +213,39 @@
     <source src="gamemusic.mp3" type="audio/mpeg">
   </audio>
 
-  <div class="grid-container">
+
+ <div class="grid-container" id='gameBoard'>
+    <!--green group (easy)--
+       <div class="header-cell">Header 1
+        <p>stuff
+       </div>
+      
     <!--green group (easy)-->
-    <button id="e" class="button button1" onclick="press(this)">CHICKEN</button>
-    <button id="f" class="button button1" onclick="press(this)">YELLOW</button>
-    <button id="g" class="button button1" onclick="press(this)">SOFT</button>
-    <button id="h" class="button button1" onclick="press(this)">WEAK</button>
+    <button id="e" class="button button1" onclick="press(this)">GLUM</button>
+    <button id="f" class="button button1" onclick="press(this)">BLUE</button>
+    <button id="g" class="button button1" onclick="press(this)">DOWN</button>
+    <button id="h" class="button button1" onclick="press(this)">LOW</button>
     <!--yellow group (medium)-->
-    <button id="a" class="button button1" onclick="press(this)">POCKET</button>
-    <button id="b" class="button button1" onclick="press(this)">FELT</button>
-    <button id="c" class="button button1" onclick="press(this)">LEGS</button>
-    <button id="d" class="button button1" onclick="press(this)">BUMPER</button>
+    <button id="a" class="button button1" onclick="press(this)">ICED</button>
+    <button id="b" class="button button1" onclick="press(this)">GREEN</button>
+    <button id="c" class="button button1" onclick="press(this)">BLACK</button>
+    <button id="d" class="button button1" onclick="press(this)">SWEET</button>
      <!--red group (hard)-->
-    <button id="i" class="button button1" onclick="press(this)">CHARGER</button>
-    <button id="j" class="button button1" onclick="press(this)">KNIFE</button>
-    <button id="k" class="button button1" onclick="press(this)">GLASS</button>
-    <button id="l" class="button button1" onclick="press(this)">CLOTH</button>
+    <button id="i" class="button button1" onclick="press(this)">TART</button>
+    <button id="j" class="button button1" onclick="press(this)">SHARP</button>
+    <button id="k" class="button button1" onclick="press(this)">SHORT</button>
+    <button id="l" class="button button1" onclick="press(this)">COARSE</button>
      <!--Purple group (very hard)-->
-    <button id="m" class="button button1" onclick="press(this)">MELON</button>
-    <button id="n" class="button button1" onclick="press(this)">SLIDE</button>
-    <button id="o" class="button button1" onclick="press(this)">GUN</button>
-    <button id="p" class="button button1" onclick="press(this)">GATE</button>
+    <button id="m" class="button button1" onclick="press(this)">NEW WORLD</button>
+    <button id="n" class="button button1" onclick="press(this)">JUPITER</button>
+    <button id="o" class="button button1" onclick="press(this)">UNFINISHED</button>
+    <button id="p" class="button button1" onclick="press(this)">SURPRISE/button>
+
   </div>
   <!--buttons at bottom of screen-->
   <button onclick="submit(this)">submit</button>
   <button onclick="deselect(this)">deselect</button>
-  <button onclick=randomizeGrid(this)>mix</button>
+ <!-- <button onclick=randomizeGrid(this)>mix</button>
   
   <!--Life counter-->
   <p>lives: <span id="lifeCount"></span></p>
@@ -260,7 +319,7 @@
     const purpleHH = ["m", "n", "o", "p"];
     
     //counts how many connections the player has currently found
-    let matchNumber = 1;
+    let matchNumber = 0;
 
 
 //Main function that determines what happens when the submit button is pressed
@@ -281,21 +340,32 @@
         if (selectedIDs.every(id => set.includes(id)) && set.every(id => selectedIDs.includes(id))) {
           set.forEach((id, index) => {
             const el = document.getElementById(id);
-            el.style.gridArea = matchNumber + '/' + (index + 1); //move buttons to the top
-            el.classList.add(color); //add connection color
+            el.style.gridArea = matchNumber + '/' + (index + 1); //move buttons to the t
+            el.remove()
+        
+           	el.classList.add(color); //add connection color
+            
+            
             //disables the buttons that form the connection
             const idwords = selectedIDs;
             idwords.forEach(id => {
               const btn = document.getElementById(id);
               if (btn) btn.disabled = true;
             });
+            
             el.classList.remove("active"); //remove selected (active) status
-           
+            
           });
-		//adding one to matchNUmber, the varaible that keeps track of how many conenctions the player has found
+         
+  
+
+		
+        
+        
+        //adding one to matchNUmber, the varaible that keeps track of how many conenctions the player has found
           matchNumber++;
           //if the player has found all the connections then:
-          if (matchNumber === 5) {
+          if (matchNumber === 4) {
             document.getElementById("overlayWin").style.display = "block"; //display win screen
             freezeallButtons(); //freeze all buttons
           }
@@ -304,7 +374,52 @@
         return false;
       };
       
-		
+	if  (checkMatch(yellowM, "yellow")) {
+       const solutionYellow = document.createElement('div');
+    solutionYellow.classList.add('header-cell');    
+    const containerDiv = document.getElementById('gameBoard');
+    containerDiv.appendChild(solutionYellow)
+    solutionYellow.style.gridArea  = `${matchNumber} / 1 / ${matchNumber + 1} / 5`;
+    solutionYellow.classList.add('yellow');
+    solutionYellow.textContent = 'TEA ATTRIBUTES';
+            };
+            
+            
+    if  (checkMatch(greenE, "green")) {
+       const solutionGreen = document.createElement('div');
+    solutionGreen.classList.add('header-cell');    
+    const containerDiv = document.getElementById('gameBoard');
+    containerDiv.appendChild(solutionGreen)
+    solutionGreen.style.gridArea  = `${matchNumber} / 1 / ${matchNumber + 1} / 5`;
+    solutionGreen.classList.add('green');
+    solutionGreen.textContent = 'WORDS FOR SADNESS';
+            };        
+            
+            
+            
+    if  (checkMatch(redH, "red")) {
+       const solutionRed = document.createElement('div');
+    solutionRed.classList.add('header-cell');    
+    const containerDiv = document.getElementById('gameBoard');
+    containerDiv.appendChild(solutionRed)
+    solutionRed.style.gridArea  = `${matchNumber} / 1 / ${matchNumber + 1} / 5`;
+    solutionRed.classList.add('red');
+    solutionRed.textContent = 'RUDE OR UNCIVIL';    
+            };        
+            
+               
+    if  (checkMatch(purpleHH, "purple")) {
+       const solutionPurple = document.createElement('div');
+    solutionPurple.classList.add('header-cell');    
+    const containerDiv = document.getElementById('gameBoard');
+    containerDiv.appendChild(solutionPurple)
+    solutionPurple.style.gridArea  = `${matchNumber} / 1 / ${matchNumber + 1} / 5`;
+    solutionPurple.classList.add('purple');
+    solutionPurple.textContent = 'NICKNAMES OF FAMOUS SYMPHONIES';     
+            };            
+            
+            
+            
 //Player hasnt found a yellow, green, purple, or red connection then:
       if (
         !checkMatch(yellowM, "yellow") &&
