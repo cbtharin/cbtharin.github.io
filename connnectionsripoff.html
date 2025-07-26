@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- things left to finish priority list:
 	
-	1. fix mix button :(
 	1.show unfound connections after the player has lost
 	2.Have text shrink to fit container
 	3.allow users to share scores through Imessage
@@ -261,7 +260,7 @@ somehow this list grew significantly longer after i spent a several hours workin
   <!--buttons at bottom of screen-->
   <button onclick="submit(this)">submit</button>
   <button onclick="deselect(this)">deselect</button>
- <!-- <button onclick=randomizeGrid(this)>mix</button>
+  <button onclick=randomizeGrid(this)>mix</button>
   
   <!--Life counter-->
   <p>lives: <span id="lifeCount"></span></p>
@@ -296,8 +295,12 @@ somehow this list grew significantly longer after i spent a several hours workin
     
     //Randomizes the Grid
     function randomizeGrid() {
-      shuffleArray(gridItems);
-      gridItems.forEach(item => gridContainer.appendChild(item));
+        // Only select remaining, active buttons
+ 		const activeButtons = Array.from(document.querySelectorAll('.button1:not(.green):not(.yellow):not(.red):not(.purple)'))
+ 		 // Shuffle only those buttons
+  		shuffleArray(activeButtons);
+     	const container  .getElementById('gameBoard');
+ 		activeButtons.forEach(btn => container.appendChild(btn))
     }
     
     //calling the randomizer function to randomize the grid off the start
@@ -537,4 +540,3 @@ const allIds = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 
 </body>
 </html>
-
