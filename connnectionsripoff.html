@@ -295,12 +295,12 @@ somehow this list grew significantly longer after i spent a several hours workin
     
     //Randomizes the Grid
     function randomizeGrid() {
-        // Only select remaining, active buttons
- 		const activeButtons = Array.from(document.querySelectorAll('.button1:not(.green):not(.yellow):not(.red):not(.purple)'))
+        // Only select remaining buttons
+ 		const remainingButtons = Array.from(document.querySelectorAll('.button1:not(.green):not(.yellow):not(.red):not(.purple)'))
  		 // Shuffle only those buttons
-  		shuffleArray(activeButtons);
+  		shuffleArray(remainingButtons);
      	const container  .getElementById('gameBoard');
- 		activeButtons.forEach(btn => container.appendChild(btn))
+ 		 remainingButtons.forEach(btn => container.appendChild(btn))
     }
     
     //calling the randomizer function to randomize the grid off the start
