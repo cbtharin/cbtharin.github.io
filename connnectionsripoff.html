@@ -299,7 +299,8 @@ somehow this list grew significantly longer after i spent a several hours workin
  		const remainingButtons = Array.from(document.querySelectorAll('.button1:not(.green):not(.yellow):not(.red):not(.purple)'))
  		 // Shuffle only those buttons
   		shuffleArray(remainingButtons);
-     	const container  .getElementById('gameBoard');
+     	
+	     const container = document.getElementById('gameBoard');
  		 remainingButtons.forEach(btn => container.appendChild(btn))
     }
     
