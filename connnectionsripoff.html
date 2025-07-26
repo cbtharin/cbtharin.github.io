@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- things left to finish priority list:
-	1.display what the connection actually is -- make this better with the words also and the text centerd
+<!-- things left to finish priority list
 	1. fix mix button :(
 	1.show unfound connections after the player has lost
 	2.Have text shrink to fit container
@@ -28,6 +27,15 @@ somehow this list grew significantly longer after i spent a several hours workin
       text-align: center;
       color: white;
       font-size: 20px;
+    }
+     
+    
+    .small-text {
+    font-size: 18px;
+    }
+    
+    .small-line {
+    line-height: 1px;
     }
 
     h1 {
@@ -292,7 +300,7 @@ somehow this list grew significantly longer after i spent a several hours workin
     }
     
     //calling the randomizer function to randomize the grid off the start
-    randomizeGrid()
+    //randomizeGrid()
         
     //Turns the winning and losing screens off with a click
     function overlayoff() {
@@ -381,50 +389,78 @@ somehow this list grew significantly longer after i spent a several hours workin
         return false;
       };
       
-	if  (checkMatch(yellowM, "yellow")) {
-       const solutionYellow = document.createElement('div');
-    solutionYellow.classList.add('header-cell');    
-    const containerDiv = document.getElementById('gameBoard');
-    containerDiv.appendChild(solutionYellow)
-    solutionYellow.style.gridArea  = `${matchNumber} / 1 / ${matchNumber + 1} / 5`;
-    solutionYellow.classList.add('yellow');
-    solutionYellow.textContent = 'TEA ATTRIBUTES';
+	if  (checkMatch(greenE, "green")) {
+      const solutionGreen = document.createElement('div');
+      solutionGreen.classList.add('header-cell');    
+      const containerDiv = document.getElementById('gameBoard');
+      containerDiv.appendChild(solutionGreen)
+      solutionGreen.style.gridArea  = `${matchNumber} / 1 / ${matchNumber + 1} / 5`;
+      solutionGreen.classList.add('green');
+      
+      const greenEx = document.createElement("p");
+      const greenWords = document.createElement("p");
+      greenEx.textContent = "Words for Sadness"
+      solutionGreen.appendChild(greenEx)
+      solutionGreen.appendChild(greenWords)
+      greenEx.classList.add('small-line')
+      greenWords.classList.add('small-text')
+      greenWords.textContent = 'Glum, Blue, Down, Low'       
+              };        
+            
+    if  (checkMatch(yellowM, "yellow")) {
+      const solutionYellow = document.createElement('div');
+      solutionYellow.classList.add('header-cell');    
+      const containerDiv = document.getElementById('gameBoard');
+      containerDiv.appendChild(solutionYellow)
+      solutionYellow.style.gridArea  = `${matchNumber} / 1 / ${matchNumber + 1} / 5`;
+      solutionYellow.classList.add('yellow');
+
+      const yellowEx = document.createElement("p");
+      const yellowWords = document.createElement("p");
+      yellowEx.textContent = "Tea Attributes"
+      solutionYellow.appendChild(yellowEx)
+      solutionYellow.appendChild(yellowWords)
+      yellowEx.classList.add('small-line')
+      yellowWords.classList.add('small-text')
+      yellowWords.textContent = 'Iced, Green, Black, Sweet'
+    
             };
-            
-            
-    if  (checkMatch(greenE, "green")) {
-       const solutionGreen = document.createElement('div');
-    solutionGreen.classList.add('header-cell');    
-    const containerDiv = document.getElementById('gameBoard');
-    containerDiv.appendChild(solutionGreen)
-    solutionGreen.style.gridArea  = `${matchNumber} / 1 / ${matchNumber + 1} / 5`;
-    solutionGreen.classList.add('green');
-    solutionGreen.textContent = 'WORDS FOR SADNESS';
-            };        
-            
-            
-            
+                  
     if  (checkMatch(redH, "red")) {
-       const solutionRed = document.createElement('div');
-    solutionRed.classList.add('header-cell');    
-    const containerDiv = document.getElementById('gameBoard');
-    containerDiv.appendChild(solutionRed)
-    solutionRed.style.gridArea  = `${matchNumber} / 1 / ${matchNumber + 1} / 5`;
-    solutionRed.classList.add('red');
-    solutionRed.textContent = 'RUDE OR UNCIVIL';    
+      const solutionRed = document.createElement('div');
+      solutionRed.classList.add('header-cell');    
+      const containerDiv = document.getElementById('gameBoard');
+      containerDiv.appendChild(solutionRed)
+      solutionRed.style.gridArea  = `${matchNumber} / 1 / ${matchNumber + 1} / 5`;
+      solutionRed.classList.add('red');
+      
+      const redEx = document.createElement("p");
+      const redWords = document.createElement("p");
+      redEx.textContent = "Rude or Uncivil"
+      solutionRed.appendChild(redEx)
+      solutionRed.appendChild(redWords)
+     redEx.classList.add('small-line')
+     redWords.classList.add('small-text')
+      redWords.textContent = 'Tart, Sharp, Short, Coarse'  
             };        
-            
-               
+  
     if  (checkMatch(purpleHH, "purple")) {
-       const solutionPurple = document.createElement('div');
-    solutionPurple.classList.add('header-cell');    
-    const containerDiv = document.getElementById('gameBoard');
-    containerDiv.appendChild(solutionPurple)
-    solutionPurple.style.gridArea  = `${matchNumber} / 1 / ${matchNumber + 1} / 5`;
-    solutionPurple.classList.add('purple');
-    solutionPurple.textContent = 'NICKNAMES OF FAMOUS SYMPHONIES';     
-            };            
-            
+      const solutionPurple = document.createElement('div');
+      solutionPurple.classList.add('header-cell');    
+      const containerDiv = document.getElementById('gameBoard');
+      containerDiv.appendChild(solutionPurple)
+      solutionPurple.style.gridArea  = `${matchNumber} / 1 / ${matchNumber + 1} / 5`;
+      solutionPurple.classList.add('purple');
+      
+      const purpleEx = document.createElement("p");
+      const purpleWords = document.createElement("p");
+      purpleEx.textContent = "Nicknames of Symphonies"
+      solutionPurple.appendChild(purpleEx)
+      solutionPurple.appendChild(purpleWords)
+      purpleEx.classList.add('small-line')
+      purpleWords.classList.add('small-text')
+      purpleWords.textContent = 'New World, Jupiter, Unfinished, Surprise'  
+            }; 
             
             
 //Player hasnt found a yellow, green, purple, or red connection then:
