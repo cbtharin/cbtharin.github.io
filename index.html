@@ -6,31 +6,174 @@
   <!-- fix view for different devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #46515a, #2c333a);
-      color: #f5f5f5;
-    }
-
-    nav {
+     nav {
       background-color: #e0e0e0;
       padding: 10px 20px;
       border-bottom: 3px solid #4caf50;
-      text-align: center; /* center nav for smaller screens */
+	 text-align: left;
+     font-size: 16px;
+    
     }
 
     nav a {
       text-decoration: none;
       font-weight: bold;
       color: #2c333a;
-      margin: 0 5px; /* spacing between links */
-      display: inline-block;
+      text-align: left;
+    }
+	  
+	  body {
+      font-family: 'Franklin Gothic', sans-serif;
+      background: linear-gradient(135deg, #46515a, #2c333a);
+      color: #f5f5f5;
+      text-align: center;
+      font-size: 20px;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #46515a, #2c333a);
+      color: #f5f5f5;
+    }
+     
+    
+    .small-text {
+    font-size: 18px;
     }
     
-    .image-row {
+    .small-line {
+    line-height: 1px;
+    }
+
+    h1 {
+      color: white;
+    }
+
+   
+
+    audio {
+      padding: 15px;
+    }
+	  
+    /*sets up the playing board and defines how big the rows and columns should be*/
+    .grid-container {
+      display: grid;
+      grid-template-rows: repeat(4, minmax(50px, 100px));
+      grid-template-columns: repeat(4, minmax(95px, 170px));
+      padding: 5px;
+      align-content: space-evenly;
+      justify-content: center;
+      gap: 0px;
+    }
+     /*items within the board*/
+    .grid-container > div {
+      background-color: #f5f5eb;
+      color: #000;
+      font-size: 30px;
+      text-align: center;
+      line-height: 1;
+      margin: 2px;
+    }
+    
+     .header-cell {
+      font-weight: bold;
+      text-align: center;
+      padding: 5px;
+      color: #9fd1a6;
+      grid-column: span 4;
+      font-family: 'Franklin Gothic', sans-serif;
+      font-weight: bold;
+      border-radius: 10px;
+      border: none;
+      
+      text-align: center;
+      text-decoration: none;
+      
+      
+      
+    }
+    
+    .header-cell.yellow {
+      background-color: #f7f17c;
+      color: black;
+      grid-column: span 4;
+   
+   }
+     .header-cell.green {
+      background-color: #9fd1a6;
+      color: black;
+    }
+
+    .header-cell.red {
+      background-color: #e67c7c;
+      color: black;
+    }
+
+     .header-cell.purple {
+      background-color: #be99c4;
+      color: black;
+     
+    }
+    
+ 
+     /*buttons*/
+    .button {
+      font-family: 'Franklin Gothic', sans-serif;
+      font-weight: bold;
+      border-radius: 10px;
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      font-size: 13px;
+      margin: 2px;
+      cursor: pointer;
+      display: inline-block;
+      height: auto;
+      max-width: 100%;
+      
+    }
+    
+    /*buttons in the board*/
+    .button1 {
+      background-color: #f5f5eb;
+      color: black;
+      
+    }
+	  
+    /*buttons when pressed */
+    .button1.active {
+      background-color: #5c5c53;
+      color: #f5f5eb;
+      
+      
+    }
+	  
+     /*attributes that get assigned to buttons when the connections are found*/
+    .button1.green {
+      background-color: #9fd1a6;
+      color: black;
+    }
+
+    .button1.yellow {
+      background-color: #f7f17c;
+      color: black;
+    }
+
+    .button1.red {
+      background-color: #e67c7c;
+      color: black;
+    }
+
+     .button1.purple {
+      
+      background-color: #be99c4;
+      color: black;
+      grid-column: span 4/auto;
+    }
+    
+        .image-row {
       display: flex;
       flex-wrap: wrap;         /* wrap images on small screens */
       justify-content: center;
@@ -49,53 +192,56 @@
       border: 3px solid white;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: rgba(255, 255, 255, 0.05);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+    /*winn, loss, and one away overlays for the screen */
+    #overlayAlmost,
+    #overlayWin,
+    #overlayLoss {
+      font-family: 'Trebuchet MS', sans-serif;
+      position: fixed;
+      display: none;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 2;
+      cursor: pointer;
     }
 
-    h1 {
-      font-size: 2.2rem;
-      text-align: center;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #ffffff;
+     /*overlay text */
+    #text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 50px;
+      color: white;
+      transform: translate(-50%, -50%);
     }
 
-    p, li {
-      font-size: 1rem;
-      line-height: 1.5;
-      color: #ddd;
-      text-align: center;
+     .footp {
+    	 color: #2c333a;
+         line-height: 1;
+         font-size: 1.2rem;
+         line-height: 0.2;
+    }
+
+    .indented {
+      margin-left: 20px;
     }
 
     footer {
       margin-top: 2rem;
-      padding: 1rem 1.5rem;
+      padding: 1rem;
       background-color: #e0e0e0;
       color: #2c333a;
       border-top: 3px solid #4caf50;
       text-align: center;
       font-size: 0.95rem;
-      min-width: 320px;         /* prevent compression on small screens */
-      word-wrap: break-word;
+         min-width: 320px;           /* prevent excessive compression on mobile */
+    word-wrap: break-word; 
     }
-
-    footer p {
-      margin: 0.3rem 0;
-    }
-
-    @media (min-width: 480px) {
-      footer {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        align-items: center;
-      }
     }
   </style>
 </head>
