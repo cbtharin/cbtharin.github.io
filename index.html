@@ -25,6 +25,27 @@
       font-weight: bold;
       color: #2c333a;
     }
+    
+    .image-row {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 5px 0;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #46515a, #2c333a);
+      color: #f5f5f5;
+    }
+
+    .image-row img {
+      width: auto;       /* natural width */
+      max-width: 410px;  /* don’t let it grow beyond 300px */
+      height: auto;      /* keep aspect ratio */
+      border-radius: 12px;
+      object-fit: contain;
+      border: 3px solid white;
+    }
 
     .container {
       max-width: 900px;
@@ -130,6 +151,8 @@
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
   }
+  
+  
 
 </style>
 	
@@ -162,6 +185,11 @@
 	<p class="footp">Charlie Tharin</p>
     <p class="footp">email: cbtharin@gmail.com</p>
     <p class="footp">phone: 702-292-3345</p>
+    
+</footer>
+
+
+<html>
     
 </footer>
 
