@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>About Me - Charlie Tharin</title>
+  <title>Charlie's Sight</title>
   <style>
     body {
       margin: 0;
@@ -100,13 +100,44 @@
       text-align: center;
       font-size: 0.95rem;
     }
+    /* Make images fill the width in a column */
+  .project-img {
+    display: block;
+    width: 100%;         /* Fill container width */
+    max-width: 600px;    /* Optional: prevent being too wide */
+    height: auto;        /* Maintain aspect ratio */
+    margin: 1rem auto;   /* Center and give spacing */
+    border-radius: 12px; /* Optional rounded corners */
+    transition: transform 0.3s;
+  }
+
+  .project-img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+
+  a {
+    text-decoration: none; /* Remove underline from links */
+  }
+
+  /* Optional: container max-width */
+  .container {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
   </style>
 </head>
 <body>
 <div class=container>
   <nav>bars</nav>
-  <h1>Title</h1>
-  <h2>Evan Self</h2>
+  <h1>Charlie's Sight</h1>
+  <h2>Check Out some of my projects below!</h2>
+  <img class="project-img" src="IMG_3566.jpg" alt="Coffee">
+  <img class="project-img" src="rocket .png" alt="Rocket">
+  <img class="project-img"src="jet.jpg" alt="jet">
 </div>
 <footer>
   
