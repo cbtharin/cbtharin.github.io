@@ -90,104 +90,39 @@
       
     }
     
-    .header-cell.yellow {
-      background-color: #f7f17c;
-      color: black;
-      grid-column: span 4;
-   
-   }
-     .header-cell.green {
-      background-color: #9fd1a6;
-      color: black;
-    }
+   /* Make images fill the width in a column */
+  .project-img {
+    display: block;
+    width: 100%;         /* Fill container width */
+    max-width: 600px;    /* Optional: prevent being too wide */
+    height: auto;        /* Maintain aspect ratio */
+    margin: 1rem auto;   /* Center and give spacing */
+    border-radius: 12px; /* Optional rounded corners */
+    transition: transform 0.3s;
+  }
 
-    .header-cell.red {
-      background-color: #e67c7c;
-      color: black;
-    }
+  .project-img:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
 
-     .header-cell.purple {
-      background-color: #be99c4;
-      color: black;
-     
-    }
-    
- 
-     /*buttons*/
-    .button {
-      font-family: 'Franklin Gothic', sans-serif;
-      font-weight: bold;
-      border-radius: 10px;
-      border: none;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      font-size: 13px;
-      margin: 2px;
-      cursor: pointer;
-      display: inline-block;
-      height: auto;
-      max-width: 100%;
-      
-    }
-    
-    /*buttons in the board*/
-    .button1 {
-      background-color: #f5f5eb;
-      color: black;
-      
-    }
-	  
-    /*buttons when pressed */
-    .button1.active {
-      background-color: #5c5c53;
-      color: #f5f5eb;
-      
-      
-    }
-	  
-     /*attributes that get assigned to buttons when the connections are found*/
-    .button1.green {
-      background-color: #9fd1a6;
-      color: black;
-    }
+  a {
+    text-decoration: none; /* Remove underline from links */
+  }
 
-    .button1.yellow {
-      background-color: #f7f17c;
-      color: black;
-    }
-
-    .button1.red {
-      background-color: #e67c7c;
-      color: black;
-    }
-
-     .button1.purple {
-      
-      background-color: #be99c4;
-      color: black;
-      grid-column: span 4/auto;
-    }
-    
+  /* Optional: container max-width */
+  .container-i {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
     
 
-    /*winn, loss, and one away overlays for the screen */
-    #overlayAlmost,
-    #overlayWin,
-    #overlayLoss {
-      font-family: 'Trebuchet MS', sans-serif;
-      position: fixed;
-      display: none;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.7);
-      z-index: 2;
-      cursor: pointer;
-    }
+    
+
+    
 
      /*overlay text */
     #text {
